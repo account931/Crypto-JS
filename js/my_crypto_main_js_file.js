@@ -1,6 +1,7 @@
 var crypt_CORE =  require('./js_modules/crypto_core.js');
 var switch_file = require('./js_modules/switch_windows.js'); //Switching windows between encrypt/decrypt to generating hash key
 var instruct_file = require('./js_modules/instructionZ.js');  //Loads or hide Instructions
+var copy_file = require('./js_modules/copy_process.js');  //Loads or hide Instructions
 
 //Crypto library itself
 var AES = require("crypto-js/aes");
@@ -26,15 +27,16 @@ $(document).ready(function(){
 //(function () 
 
 
- //----
+ //----TESTT
  // Encrypt
+ /*
  var encr2 = CryptoJS.AES.encrypt("My Message to encrypt", "SecretKey");
  // Decrypt
  var descr2 = CryptoJS.AES.decrypt(encr2.toString(), "SecretKey");
  var descryptedFinal = descr2.toString(CryptoJS.enc.Utf8);
  console.log(descryptedFinal);
  //alert(descryptedFinal);
- 
+ */
  
  
 //Core encrypting/decrypting  
@@ -50,8 +52,8 @@ $(document).ready(function(){
 	  
 	  //Decrypt
       $("#decryptButton").click(function(){ 
-		var encr = new cryptCORE();  //Module
-		cryptCORE.decryptX();
+		var decr = new crypt_CORE();  //Module
+		decr.decryptX();
 	  });
 	
 	
@@ -100,6 +102,21 @@ $(document).ready(function(){
  
  
  
+ //Copy the secret hash key
+// **************************************************************************************
+// **************************************************************************************
+//                                                                                     **
+    $("#copyme").click(function(){ 
+		var copy = new copy_file ();  //Module
+		copy.copy_to_clipboard();
+	});
+	
+// **                                                                                  **
+// **                                                                                  **
+// **************************************************************************************
+// **************************************************************************************
+
+
 
 
 

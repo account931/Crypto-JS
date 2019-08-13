@@ -14,6 +14,7 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- Fa fa lib -->
 
       <link rel="stylesheet" type="text/css" media="all" href="css/myEncryptCss.css">
       <script src="dist/js/bundle_js.js"></script><!--  Core  COMMON JS-->
@@ -25,7 +26,7 @@
 
        <div id="headX" class="jumbotron text-center gradient" style =''> <!--#2ba6cb;-->
          <h1 id="h1Text"> <span id="textChange"> Crypto-js</span>   </h1>
-           <p class="header_p">generates Crypto-js, etc <span class="glyphicon glyphicon-wrench"></span></p> 
+           <p class="header_p">generates encrypted and decrypted data based on secret key, etc <span class="glyphicon glyphicon-wrench"></span></p> 
            <!--<p class="language"><a href="../">Ru</a></p>-->
 	   </div>
 
@@ -53,16 +54,18 @@
     		   <p> Encrypt <span class="span-small"> &nbsp;(enter the items, each from the new line)  </span>&nbsp;<span class='glyphicon glyphicon-retweet'></span></p>
 			   
     		   <form role="form">  	
-    		     <div class="form-group"><!--coordsInput-->
-				    <label for="intMin">Your key:</label><input type="text" class="form-control" id="randInteger_Input">
+    		     <div class="form-group">
+				    <label for="intMin">Your key:</label>
+					<input type="text" class="form-control" id="userSecretKey"/><!--User's secret key-->
+					<button type="button" id="copyme">Copy <i class="fa fa-space-shuttle"></i></button> <span id ="flashMessage"></span>
 				</div>
 				
-				 <div class="form-group"><!--coordsInput-->
-    		       <textarea class="form-control" rows="6" placeholder="Your list here.." id='randList_Input' required>
+				 <div class="form-group"> <!--User's data input to encrypt-->
+    		       <textarea class="form-control" rows="6" placeholder="Your data here" id="userDataX">
 				   </textarea>	  		  				  			
     		     </div>
     			</form>	  		
-               <!--------------------TextArea FORm  END----------------------------------->
+               <!--------------------TextArea FORM  END----------------------------------->
  
  
                  <!---------------------------START BUTTONS------------------------------>
@@ -70,14 +73,14 @@
 					<br>
 					<div class="col-md-8"  id="" style="margin-top:33px;">   
 										
-    				  		<button id="encryptButton" type="button" class="btn btn-primary btn-embossed btn-lg btn-wide bt-mobile-mine">Encrypt</button>
-							<button id="decryptButton" type="button" class="btn btn-primary btn-embossed btn-lg btn-wide bt-mobile-mine">Decrypt</button>
-                            <button id="clearButton" type="button"  class="btn btn-primary btn-embossed btn-lg btn-wide bt-mobile-mine">Reset</button >
-							<button id="examplebutton" type="button" class="btn btn-primary btn-embossed btn-lg btn-wide bt-mobile-mine">Example</button>
-                            <button id="instructionButton" type="button" class="btn btn-primary btn-embossed btn-lg btn-wide bt-mobile-mine">Instructions</button>
-                            <!--<button id="cr_footer" type="button" class="btn btn-primary btn-embossed btn-lg btn-wide">CR Footer</button>-->
+    				     <button id="encryptButton" type="button" class="btn btn-primary btn-embossed btn-lg btn-wide bt-mobile-mine">Encrypt</button>
+						 <button id="decryptButton" type="button" class="btn btn-danger btn-embossed btn-lg btn-wide bt-mobile-mine">Decrypt</button>
+                         <button id="clearButton" type="button"  class="btn btn-success btn-embossed btn-lg btn-wide bt-mobile-mine">Reset</button >
+					     <button id="examplebutton" type="button" class="btn btn-info btn-embossed btn-lg btn-wide bt-mobile-mine">Example</button>
+                         <button id="instructionButton" type="button" class="btn btn-warning btn-embossed btn-lg btn-wide bt-mobile-mine">Instructions</button>
+                         <!--<button id="cr_footer" type="button" class="btn btn-primary btn-embossed btn-lg btn-wide">CR Footer</button>-->
     				</div>
-<!-------------------------------------------------------START BUTTONS---------------------------------------->
+                <!----------------------------END START BUTTONS ---------------------------------------->
     		 </div><!-- /.col-md-5 --> <!-- END  <div class="col-md-5">-->
 
              <!----------------------------------------END id="randListDiv" DIV 1111----------------------------------->

@@ -4,7 +4,7 @@ var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglifyjs'); // Подключаем gulp-uglifyjs (для сжатия JS)
-var watch = require('gulp-watch');
+//var watch = require('gulp-watch');
 
 
 gulp.task('mytask', function() {
@@ -13,15 +13,65 @@ gulp.task('mytask', function() {
 
 
 
-//The only working
-gulp.task('browserify', function() {
-  return browserify('./js/encrypt_core.js')
+//The only working Gulp task, it packs all modules in one & uglify it.
+gulp.task('browserifyX', function() {
+  return browserify('./js/my_crypto_main_js_file.js')
     .bundle()
     .pipe(source('bundle_js.js')) // gives streaming vinyl file object
     .pipe(buffer()) // <----- convert from streaming to buffered vinyl file object
     .pipe(uglify()) // now gulp-uglify works 
     .pipe(gulp.dest('./dist/js/'));
 });
+
+
+
+
+
+
+
+//TASK to concat all css files NOT WORKING -------------
+const cleanCSS = require('gulp-clean-css');  // npm install gulp-clean-css --save-dev
+
+gulp.task('concatCssX', () => { //to run => gulp concatCssX
+
+return gulp.src('css/*.css')  //where to take css files
+  .pipe(cleanCSS({
+      debug: true,
+      compatibility: 'ie8',
+      level: {
+          1: {
+              specialComments: 0,
+          },
+      },
+  })) /*
+  .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+  }))
+  .pipe(rename({
+      basename: 'main-styles',
+      suffix: '.min',
+  }))*/
+  .pipe(gulp.dest('dist/css/'))
+
+});
+//---------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //won't work

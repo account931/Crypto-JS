@@ -1,3 +1,9 @@
+.#error, #flashMessage{color:red;}
+
+.errorX{
+	color:red;
+}
+
 /*  ----------------Mobile */
 
 @media screen and (max-width: 460px) {   

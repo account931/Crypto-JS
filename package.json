@@ -5,8 +5,8 @@
   "main": "dist/js/bundle_js.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-js": "browserify js/encrypt_core.js > dist/js/bundle_js.js -d",
-    "watch-js": "watchify js/encrypt_core.js -o dist/js/bundle_js.js -dv"
+    "build-js": "browserify js/my_crypto_main_js_file.js > dist/js/bundle_js.js -d",
+    "watch-js": "watchify js/my_crypto_main_js_file.js -o dist/js/bundle_js.js -dv"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +20,7 @@
     "browser-sync": "^2.26.3",
     "browserify": "latest",
     "gulp": "^4.0.0",
+    "gulp-clean-css": "^4.2.0",
     "gulp-concat": "^2.6.1",
     "gulp-uglifyjs": "^0.6.2",
     "vinyl-buffer": "^1.0.1",

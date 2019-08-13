@@ -1,28 +1,41 @@
-CRYPTO JS Library
+CRYPTO JS Library https://www.npmjs.com/package/crypto-js
 ================
+DELETE: encrypt_core -> my_crypto_main_js_file
+
+
 Updated version 
 1. Js rewritten with CommonJS Modules, packed by Browserify + Watchify
-2. CSS animation rotate
+
 3.App uses 1 script - dist/js/bundle.js, which contains all scripts, packed by Browserify
 
 ============================================================================
-CLI Commands
-npm init  -> to create package.json
-npm install -> if u have package.json with dependencies and no {node-modules} folder yet.
+CLI Commands for NPM
+npm init  -> to create package.json which contains all dependencies.
+npm install -> in case if u have package.json with dependencies and no {node-modules} folder yet.
 
 ===============================================
 Commands
-1. browserify js/encrypt_core.js.js -o dist/js/bundle_js.js -d      =>  creates js bundle (if u use browserify standalone, u 'll have to recreate it manually after any changes in script)
+1. browserify js/my_crypto_main_js_file.js -o dist/js/bundle_js.js -d    =>  creates js bundle (pack all modules in one bundle_js.js)
+     if u use browserify standalone(without watchify), u 'll have to recreate it manually after any changes in script).
+	 You can either run coomand from package.json => npm run build-js
    
 2. npm run watch-js  = >  watches changes without rebuild
+
+============================================================================
+
+
+
+
+
+
 
 ============================================================================
 add to packagist.json
 
  "scripts": {
    
-    "build-js": "browserify js/encrypt_core.js > dist/js/bundle_js.js -d",
-    "watch-js": "watchify js/encrypt_core.js.js -o js/bundle_js.js"
+    "build-js": "browserify js/my_crypto_main_js_file.js > dist/js/bundle_js.js -d",
+    "watch-js": "watchify js/my_crypto_main_js_file.js -o js/bundle_js.js"
   },
  "devDependencies": {
     "browserify": "latest",
@@ -46,8 +59,11 @@ watchify.js install-> add to package.json + npm install (we need if we use brows
 
 
 
+============================
+Gulp
+Run gulp task in the end of development, it will not concatanate all js modues to one, but additionally 'll uglify/obfuscate it.
 
-gulp taskname -> run gulp
+gulp browserifyX  => run gulp task "browserifyX"
 
 gulp.task('watch', ['browser-sync', 'sass'], function() {
     gulp.watch('app/sass/**/*.sass', ['sass']); // Наблюдение за sass файлами в папке sass
