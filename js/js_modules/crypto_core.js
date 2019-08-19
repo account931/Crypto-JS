@@ -39,15 +39,26 @@ function crypto_core(){
 	   //alert(my_encrypted);
 	   //finalTextt = "GGGG";
 	   crypto_core.finalTextt = "<h3 style='word-break: break-all'>" + my_encrypted + "</h3>";
-	   $("#resultFinal").stop().fadeOut("slow",function(){ $(this).html(crypto_core.finalTextt)}).fadeIn(2000); //html the result 
 	   
+	   $("#resultFinal").stop().fadeOut("slow",function(){ //with animation
+           $(this).css({border: "1px solid black", padding:"1em"});		   
+	       $(this).html(crypto_core.finalTextt);
+		}).fadeIn(2000); //html the result 
+	   
+	   //scroll to
 	   var scrollX = new scroll_file();
-	   scrollX.scrollResults("#resultFinal");;
+	   scrollX.scrollResults("#resultFinal");
       
    },
    
    
    
+   
+   
+   
+   
+   
+   //--------------------------------------------------------------------
    //decrypting text data from user's encrypted input and using user's secret hash key
    this.decryptX = function(){
 	    //If user has not input any data to encrypt
@@ -61,7 +72,8 @@ function crypto_core(){
 	  //var descr2 = CryptoJS.AES.decrypt(crypto_core.encr.toString(), "SecretKey"); 
 	  var descr2 = CryptoJS.AES.decrypt($.trim($("#userDataX").val()).toString(), $("#userSecretKey").val()); //message to decrypt, your secret Key
       var descryptedFinal = descr2.toString(CryptoJS.enc.Utf8);
-	  if(!descryptedFinal){descryptedFinal = "<span class='error'>Error, secret key doesn't match your encrypted data</span>";}
+	  
+	  if(!descryptedFinal){descryptedFinal = "<span class='errorX'>Error, secret key doesn't match your encrypted data  <i class='fa fa-battery-1'></i></span> ";}
 	  crypto_core.finalTextt = "<h3 style='word-break: break-all'>" + descryptedFinal + "</h3>";
 	  $("#resultFinal").stop().fadeOut("slow",function(){ $(this).html(crypto_core.finalTextt)}).fadeIn(2000);
       

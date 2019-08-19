@@ -2,6 +2,8 @@ var crypt_CORE =  require('./js_modules/crypto_core.js');
 var switch_file = require('./js_modules/switch_windows.js'); //Switching windows between encrypt/decrypt to generating hash key
 var instruct_file = require('./js_modules/instructionZ.js');  //Loads or hide Instructions
 var copy_file = require('./js_modules/copy_process.js');  //Loads or hide Instructions
+var reset_file = require('./js_modules/clear_fields.js');  //clear fields
+var changeTheme_file = require('./js_modules/changeStyleTheme.js');  //change css Theme
 
 //Crypto library itself
 var AES = require("crypto-js/aes");
@@ -84,7 +86,7 @@ $(document).ready(function(){
  
  
 
- //Loads or hide Instructions
+ //Load or hide Instructions
 // **************************************************************************************
 // **************************************************************************************
 //                                                                                     **
@@ -102,13 +104,65 @@ $(document).ready(function(){
  
  
  
- //Copy the secret hash key
+ //Copy the secret hash key to clipboard
 // **************************************************************************************
 // **************************************************************************************
 //                                                                                     **
     $("#copyme").click(function(){ 
-		var copy = new copy_file ();  //Module
+		var copy = new copy_file();  //Module
 		copy.copy_to_clipboard();
+	});
+	
+// **                                                                                  **
+// **                                                                                  **
+// **************************************************************************************
+// **************************************************************************************
+
+
+
+
+
+
+ //Clearing the fields
+// **************************************************************************************
+// **************************************************************************************
+//                                                                                     **
+    $("#clearButton").click(function(){ 
+		var reset = new reset_file();  //Module
+		reset.clearFields();
+	});
+	
+// **                                                                                  **
+// **                                                                                  **
+// **************************************************************************************
+// **************************************************************************************
+
+
+
+ //Change the theme button
+// **************************************************************************************
+// **************************************************************************************
+//                                                                                     **
+    //$("#changeStyle").click(function(){ 
+		var changeThemeCss = new changeTheme_file();  //Module
+		changeThemeCss.switchTheme();
+	//});
+	
+// **                                                                                  **
+// **                                                                                  **
+// **************************************************************************************
+// **************************************************************************************
+
+
+
+
+
+ //The second hidden page, Clic on "Generates random hash Key"
+// **************************************************************************************
+// **************************************************************************************
+//                                                                                     **
+    $("#generatehashKey").click(function(){ 
+		alert("Sorry, not implemented yet!!!");
 	});
 	
 // **                                                                                  **
