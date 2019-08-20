@@ -48,17 +48,17 @@
 			 <!------------------------     START PAGE 1 (main page with form)  -------------------------------------->
     	     <!------------------------START id="randList" DIV 1111 (visible by default)-------------------------------------->
     	     <!-- Each div should have id = checkboxID + "Div", input should be checkboxID + "_Input" to automate it in JS -->
-			 <div class="col-md-12 random" id="randListDiv"> <!--5-->       
-    		   <!--<h3 class="margin-bottom-40 editContent">Your  <span class='subtext'> text</span></h3>-->
+			 <div class="col-md-12 col-sm-12 col-xs-12 random" id="randListDiv"> <!--5-->       
+
 
                <!----------------------- TextArea Form  Start-------------------------------->
     		   <p> Encrypt <span class="span-small"> &nbsp;(enter the items, each from the new line)  </span>&nbsp;<span class='glyphicon glyphicon-retweet'></span></p>
 			   
     		   <form role="form">  	
     		     <div class="form-group">
-				    <label for="intMin">Your key:</label>
-					<input type="text" class="form-control" id="userSecretKey"/><!--User's secret key-->
-					<button type="button" id="copyme">Copy <i class="fa fa-space-shuttle"></i></button> <span id ="flashMessage"></span>
+				    <label for="intMin">Your secret key:</label>
+					<input type="text" class="form-control" id="userSecretKey" placeholder="Your Key"/><!--User's secret key-->
+					<button type="button" id="copyme">Copy key <i class="fa fa-space-shuttle"></i></button> <span class ="flashMessage"></span>
 				</div>
 				
 				 <div class="form-group"> <!--User's data input to encrypt-->
@@ -141,7 +141,7 @@
 
     <!------------------------------------------Start INSTRUCTIONS  ------------------------------->
     <br>
-    <div class="col-md-8 jumbotron"  id="hiddenInstructions" style="display:none;margin-top:2%;"> 
+    <div class="col-md-12 col-sm-12 col-xs-12 jumbotron"  id="hiddenInstructions" style="display:none;margin-top:2%;"> 
 
       <!-- INSTRUCTIONS-->
       <br>

@@ -8,6 +8,7 @@ function instructionX(){
 	
   this.setInstruction = function(){ 
   
+  
       $("#hiddenInstructions").toggle(1000); //hideor show instructions
 	  
        if ($("#instructionButton").attr("value")=="instructions") {
@@ -22,6 +23,7 @@ function instructionX(){
 	   //scroll to
 	   var scrollX = new scroll_file();
 	   scrollX.scrollResults("#hiddenInstructions");
+	 
    }
 
 }

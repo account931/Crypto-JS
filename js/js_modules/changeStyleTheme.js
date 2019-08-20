@@ -4,7 +4,7 @@
 
 function changeStyleTheme(){
   
-   
+  //array with wallpaper images 
   this.wallURL = [
 	
 	    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQsQf2-zwuStKf6u2V2HE_nCy9rRvk5M8ag043FAenQbOrCXY3tA', //violets blocks
@@ -99,33 +99,37 @@ function changeStyleTheme(){
 		'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQsQf2-zwuStKf6u2V2HE_nCy9rRvk5M8ag043FAenQbOrCXY3tA', // violet WEATHER MAIN
 		'https://www.welovesolo.com/wp-content/uploads/vector/46/Pattern-word-cloud-creative-vector-07.jpg',  //text 3
 		'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHbhzuoJFsUlWKBKqGRtReqUAcWg6TbphM3BPEzeQDJa-sqfl6',  //violet
-		'',  //EMPTY
+		''  //EMPTY
    ],
    
    
    
-  this.counter = 0,
+  this.counter,
    
   
   this.switchTheme = function()  
   {
+	  var context = new changeStyleTheme(); // spec var to get variables changeStyleTheme.counter & changeStyleTheme.wallURL. Addressing directly like {changeStyleTheme.wallURL} does not not work for some reason
+	  context.counter = 0;
+	  
 	  $("#changeStyle").click(function(){ 
       //USING DIFFERENT FUNCTION INSIDE
 	  //var css = new changeStyleTheme2();
 	  //css.changeBGColor();
 	  
-	       alert(changeStyleTheme.counter);
-	       if((this.counter + 1) == this.wallURL.length){  //if counter == array length , {+1 as counter starts with 0}
-			   this.counter = 0;
+	       
+	       //alert(context.counter);
+	       if((context.counter + 1) == context.wallURL.length){  //if counter == array length, then reset counter, {+1 as counter starts with 0}
+			   context.counter = 0;
 		   } else {
-		       this.counter++; 
+		       context.counter++; 
 		   }
 		
 
-           var cols = document.getElementsByClassName('head-style');
+           var cols = document.getElementsByClassName('head-style'); //get your class assigned to html elements u want to change
 		   //alert(cols.length);
            for(var i=0; i<cols.length; i++) {
-               cols[i].style.backgroundImage = 'url(' + this.wallURL[this.counter] + ')';
+               cols[i].style.backgroundImage = 'url(' + context.wallURL[context.counter] + ')';
            }
 	   
 	  });
@@ -167,7 +171,7 @@ function changeStyleTheme(){
 
    
    //---------------------
-   
+   /*
    function changeStyleTheme2(){
        
 	   
@@ -177,7 +181,7 @@ function changeStyleTheme(){
        }
 
   }
-
+  */
 
 module.exports = changeStyleTheme;
 

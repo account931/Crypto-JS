@@ -15,11 +15,11 @@ npm install -> in case if u have package.json with dependencies and no {node-mod
 
 ===============================================
 Commands
-1. browserify js/my_crypto_main_js_file.js -o dist/js/bundle_js.js -d    =>  creates js bundle (pack all modules in one bundle_js.js)
+1. browserify js/my_crypto_main_js_file.js -o dist/js/bundle_js.js -d    =>  creates one js bundle file (packs all modules in one bundle_js.js). No obfuscate is applied.
      if u use browserify standalone(without watchify), u 'll have to recreate it manually after any changes in script).
-	 You can either run coomand from package.json => npm run build-js
+	 You can either run command from package.json => npm run build-js
    
-2. npm run watch-js  = >  watches changes without rebuild
+2. npm run watch-js  = >  watches changes without rebuild, i.e without having u to run {npm run build-js} manually.
 
 ============================================================================
 
@@ -43,7 +43,7 @@ add to packagist.json
   }
 
 ================================================================================
-Installing
+Installing dependencies (or alternatively add them manually to packagist.json and run {npm install})
 npm install -g browserify
 npm install gulp -g          => install globally
 npm install gulp --save-dev  => add to package.json dependencies
@@ -61,7 +61,7 @@ watchify.js install-> add to package.json + npm install (we need if we use brows
 
 ============================
 Gulp
-Run gulp task in the end of development, it will not concatanate all js modues to one, but additionally 'll uglify/obfuscate it.
+Run gulp task in the end of development, it will not only concatanate all js modues to one, but additionally 'll uglify/obfuscate it.
 
 gulp browserifyX  => run gulp task "browserifyX"
 

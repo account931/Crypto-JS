@@ -9,7 +9,10 @@ function clear_fields(){
       $("#hiddenInstructions").hide(2000);
             $("#userSecretKey").val('');
 			$("#userDataX").val('');
-            $("#resultFinal").hide(1000);
+			$("#resultFinal").hide(1000);
+            $("#resultFinal").html('');
+			$("#copyResultButton").hide(1000); //hide button COPY for Result
+			
             //hide  instr  &  change  button
             //this.hideInstructions ();
             //END  Hide Instructions  and  change  button

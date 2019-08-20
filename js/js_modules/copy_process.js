@@ -1,7 +1,9 @@
 //var $ = require('jquery');
+
 function copy_process(){
 	
-  this.copy_to_clipboard = function(){
+  this.copy_to_clipboard = function(divID_toCopy, targetX){ //args(id of div to copy, use value(for input) or innerText(for div))
+  
     
       // creating new textarea element and giveing it id 't'
       var t = document.createElement('textarea');
@@ -11,8 +13,9 @@ function copy_process(){
       // You have to append it to your page somewhere, I chose <body>
       document.body.appendChild(t);
 	  
-     // Copy whatever is in your div to our new textarea
-	 t.value = document.getElementById('userSecretKey').value;
+     //POINT the div ID to copy. Copy whatever is in your div to our new textarea
+	 t.value = eval('document.getElementById(divID_toCopy).' + targetX);  //eval() to execute the code
+	 //t.value = document.getElementById('userSecretKey').value; //innerText
      //t.value = document.getElementById('userSecretKey').innerText;
 	 
      // Now copy whatever inside the textarea to clipboard;
@@ -22,8 +25,9 @@ function copy_process(){
      // Remove the textarea;
     document.body.removeChild(t);
 	
-	$('#flashMessage').html('<span class="errorX">Copied!!!!!!!</span>').fadeOut(4500);
-      
+	$('.flashMessage').html('<span class="errorX">Copied!!!!!!!</span>').fadeOut(4500);
+	setTimeout(function(){ $('.flashMessage').fadeIn().html(''); }, 1000); //reappear span with delay
+
    }
 
 }

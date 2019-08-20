@@ -4,6 +4,7 @@ var instruct_file = require('./js_modules/instructionZ.js');  //Loads or hide In
 var copy_file = require('./js_modules/copy_process.js');  //Loads or hide Instructions
 var reset_file = require('./js_modules/clear_fields.js');  //clear fields
 var changeTheme_file = require('./js_modules/changeStyleTheme.js');  //change css Theme
+var generateHash_file = require('./js_modules/generateHashOnSecondPage.js');  //generate hash key on the second hidden page
 
 //Crypto library itself
 var AES = require("crypto-js/aes");
@@ -75,6 +76,8 @@ $(document).ready(function(){
    
 		var switchModule = new switch_file();  //Module
 		switchModule.changeWindowsAction();
+		
+	
 	
 // **                                                                                  **
 // **                                                                                  **
@@ -90,8 +93,9 @@ $(document).ready(function(){
 // **************************************************************************************
 // **************************************************************************************
 //                                                                                     **
-    $("#instructionButton").click(function(){ 
+    
 		var instruct = new instruct_file();  //Module
+	$("#instructionButton").click(function(){ 
 		instruct.setInstruction();
 	});
 	
@@ -102,7 +106,7 @@ $(document).ready(function(){
  
 
  
- 
+
  
  //Copy the secret hash key to clipboard
 // **************************************************************************************
@@ -110,7 +114,24 @@ $(document).ready(function(){
 //                                                                                     **
     $("#copyme").click(function(){ 
 		var copy = new copy_file();  //Module
-		copy.copy_to_clipboard();
+		copy.copy_to_clipboard('userSecretKey', 'value'); //args(id of div to copy, use value(for input) or innerText(for div))
+	});
+	
+// **                                                                                  **
+// **                                                                                  **
+// **************************************************************************************
+// **************************************************************************************
+
+
+
+//Copy the encrypted/decrypted RESULT data to clipboard
+// **************************************************************************************
+// **************************************************************************************
+//                                                                                     **
+    //$("#copyResultButton").click(function(){ 
+	$(document).on("click", '#copyResultButton', function() {   //this  click is used to react to newly generated cicles
+		var copy = new copy_file();  //Module
+		copy.copy_to_clipboard('resultFinal', 'innerText'); //args(id of div to copy, use value(for input) or innerText(for div))
 	});
 	
 // **                                                                                  **
@@ -122,8 +143,7 @@ $(document).ready(function(){
 
 
 
-
- //Clearing the fields
+ //Clearing the fields, i.e RESET
 // **************************************************************************************
 // **************************************************************************************
 //                                                                                     **
@@ -162,7 +182,9 @@ $(document).ready(function(){
 // **************************************************************************************
 //                                                                                     **
     $("#generatehashKey").click(function(){ 
-		alert("Sorry, not implemented yet!!!");
+	    var hashKeyOnSecondPage = new generateHash_file();  //Module
+		hashKeyOnSecondPage.generateRandomKey();
+		
 	});
 	
 // **                                                                                  **

@@ -1,4 +1,5 @@
 //var $ = require('jquery');
+var reset_file = require('./clear_fields.js');  //clear fields
 //Switching windows between encrypt/decrypt to generating hash key
 
 
@@ -29,6 +30,13 @@ function switch_windows(){
 	    //Init the drawing the relevant window, //Switching windows between encrypt/decrypt to generating hash key
 		var changeWindow = new showRelevantWindow();
 		changeWindow.traceCheckBoxSelection(this.id);
+		
+		
+		
+		
+	   //reset fields on changing
+		var reset = new reset_file();  //Module
+		reset.clearFields();
 		
 	   });
 	   // END On CheckBox change
