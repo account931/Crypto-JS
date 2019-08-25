@@ -65,11 +65,12 @@ function showRelevantWindow(){
         //$(".random").stop().fadeOut(900,function() {  $("#" + passedID + "Div").show() }).fadeIn(900);
 		
 		//html the relevant instruction to id="hiddenInstructions"
+		/*
 		$("#hiddenInstructions").html("").hide();
 		var instr = "window." + passedID + "Instruction"; // i.e randListInstruction, randIntegerInstruction
 		    instr = eval(instr); // convert the string to var, otherwise it is html-ed as a string
 		$("#hiddenInstructions").html(instr);
-   
+        */
 
 
    
