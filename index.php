@@ -18,12 +18,54 @@
 
       <link rel="stylesheet" type="text/css" media="all" href="css/myEncryptCss.css">
 	  <link rel="stylesheet" type="text/css" media="all" href="css/changeTheme.css">
+	  <link rel="stylesheet" type="text/css" media="all" href="css/sideNavFullScreenMenu.css"> <!-- sideNavFullScreenMenu CSS -->
+	  
       <script src="dist/js/bundle_js.js"></script><!--  Core  COMMON JS-->
 	  <meta name="viewport" content="width=device-width" />
 
      </head>
 
      <body>
+	 
+	 
+	 
+	 
+	 
+	 
+  <!-----------------------------------      sideNavFullScreenMenu ----------------------------------> 	
+<span class="buttonX" style="font-size:30px;cursor:pointer; position:absolute; top:0px; left:0px;" onclick="openNav()">&#9776; </span> <!-- button to open menu-->
+
+    <div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+  </div>
+</div>
+	
+
+<script>
+function openNav() {
+  document.getElementById("myNav").style.height = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.height = "0%";
+}
+</script>
+<!----------------------------------- END sideNavFullScreenMenu ---------------------------------->    
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
 
        <div id="headX" class="jumbotron text-center gradient head-style" style =''> <!--#2ba6cb;-->
          <h1 id="h1Text"> <span id="textChange"> Crypto-js</span>   </h1>
@@ -194,6 +236,15 @@
 	   <!-----------------  Button to change Style theme------------------------->
 	   <input type="button" class="btn" value=">>" id="changeStyle" style="position:absolute;top:0px;right:0px;" title="click to change theme"/>
 	   <!-----------------  Button to change Style theme------------------------->
+	   
+	   
+	   
+	   
+	   
+
+	   
+	   
+	   
 	   
     
     </body>
