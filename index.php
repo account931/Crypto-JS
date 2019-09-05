@@ -216,7 +216,7 @@ function closeNav() {
 				
     		</div><!-- /.wrapper -->
 
-                <div style="height:77px;"></div>
+                <div style="height:177px;"></div>
 
 
     	
@@ -226,7 +226,7 @@ function closeNav() {
 		
 		
 		<!------- Footer ---------->     
-				<div class="footer">
+				<div class="footer" style="flex: 0 0 auto;"> <!-- navbar-fixed-bottom -->
 				    Contact: <strong>dimmm931@gmail.com</strong><br>
 					<?php  echo date("Y"); ?>
 				</div>
@@ -241,9 +241,21 @@ function closeNav() {
 	   
 	   
 	   
+<script>
+// Высчитываем высоту footer и делаем соответствующий отступ от main:
+//To adjsut footer to bottom
+function footerX(){
+var
+    main = document.getElementById('contact1'),
+    footer = document.getElementsByClassName('footer')[0];
 
-	   
-	   
+    footerHeight = footer.clientHeight;
+    main.style.paddingBottom = (footerHeight*2)+'px';
+}
+
+window.addEventListener('load',footerX);
+window.addEventListener('resize',footerX);
+</script>	   
 	   
 	   
     

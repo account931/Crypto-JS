@@ -29,6 +29,7 @@ gulp.task('browserifyX', function() {
 
 
 
+
 //TASK to concat all css files NOT WORKING -------------
 const cleanCSS = require('gulp-clean-css');  // npm install gulp-clean-css --save-dev
 
@@ -56,7 +57,6 @@ return gulp.src('css/*.css')  //where to take css files
 
 });
 //---------------------
-
 
 
 
