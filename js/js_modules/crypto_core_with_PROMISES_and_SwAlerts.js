@@ -1,17 +1,12 @@
-//This is the core Module.
-//This is the variant with Sweet Alerts and Callbacks. We use callback here instead of promises as Promises is not supported in some browsers.
-//It uses Sweet Alerts instead of Alerts. As Sweet Alerts don't freeze the code like alerts, had to rewrite it with callback (not Promises as they are not supported in some browsers). 
-//Otherwise code will continue till end not waiting till used confirms Sweet Alert.
-
+//This is the variant with Promises & Sweet Alerts. This Module is working but inactive and not used as Promises is not supported in some browsers.
+//It uses Sweet Alerts instead of Alerts. As Sweet Alerts don't freeze the code like alerts, had to rewrite it with Promises {.then}. Otherwise code will continue till end not waiting till used confirms Aweet Alert.
 //If u find this too complicated & want to know just about CryptoJS, see js_modules/crypto_core_copy_without _Sweet_Alerts.js, it is the same but without Sweet Alerts & Promises.
-//To see variant with Promises and SweetAlert, please see js_modules/crypto_core_with_PROMISES_and_SwAlerts.js
-//To see variant without Promises, Sweet Alerts and callbacks, please see js_modules/crypto_core_copy_without _Sweet_Alerts.js
 
 //var $ = require('jquery');
 var CryptoJS = require("crypto-js");
 var scroll_file = require('./scrollZ.js'); 
 var UUID_file = require('./generate_uuid.js'); //my funct to generate random numbers
-//var sweetAlert = require('sweetalert');  //import sweet alert  //now, instead we use CDN Sw Alerts Bootsrap https://lipis.github.io/bootstrap-sweetalert/ //uncomment it if u want to try this simple Sweet Alert Library with Promises + + temporary rename "js_modules/crypto_core_with_PROMISES_and_SwAlerts.js" to "js_modules/crypto_core.js"
+var sweetAlert = require('sweetalert');  //import sweet alert
 
 function crypto_core(){
 
@@ -23,10 +18,9 @@ function crypto_core(){
   //encrypting text data from user's input and using user's secret hash key
   this.encryptXX = function(){
 	  
-	  
 	   //If user has not input any data to encrypt
 	   if (!$.trim($("#userDataX").val())){
-		   swal("Failed, no input!", "Check your input!", "error"); //Sweet alert //alert("No input");
+		   swal({ title: "Failed, no input!", text: "Check your input", icon: "error", button: "OK",}); //Sweet alert //alert("No input");
 		   return false;
 	   }
 	   
@@ -34,31 +28,10 @@ function crypto_core(){
 	    //If user has not input secret hash key, generate some random
 	   if (!$.trim($("#userSecretKey").val())){
 		   
-		   //Sweet alert. Uses CallBack instead of Promise, to make sure it runs after clicking OK (sweetAlerts does not freeze the code, like Alert)
-		   swal({ title: "You did not provide a secret hash key!", //Sweet alert   //alert("No secret hash key, will be generated automatically");
-		       text: "Secret hash key will be generated automatically.", 
-		       type: "warning", 
-			   //button: "OK", 
-		       showCancelButton: true, 
-			   confirmButtonClass: "btn-danger",
-			   //closeOnConfirm: false
-		   },
-		   function(valueX){
-			   if(valueX){ //if click OK
-			       var UUID = new UUID_file();
-	               var randomKey = UUID.generate_UUID();
-		           $("#userSecretKey").val(randomKey);
-				   proceedCrypting();
-				   
-			   } else {    //if click cancel
-			       //alert('cancelled');
-			   }
-           });
-		   //end Swall callback 
+		   //Sweet alert. Uses Promise, to make sure it runs after clicking OK (sweetAlerts does not freeze the code, like Alert)
+		   swal({ title: "You did not provide a secret hash key!", text: "Secret hash key will be generated automatically.", icon: "info", button: "OK",}) //Sweet alert   //alert("No secret hash key, will be generated automatically");
 		   
-		   
-		   //----------
-		   /*.then((value) => {
+		   .then((value) => {
 			   
                var UUID = new UUID_file();
 	           var randomKey = UUID.generate_UUID();
@@ -69,11 +42,9 @@ function crypto_core(){
 		   .then((value) => {
 			   proceedCrypting();
 		   }); //end 2nd then promis 
-		   */
-		   //--------
        
        //if user printed  secret hash key   
-	   } else {   
+	   }	else {   
 		   proceedCrypting();
 	   }
 		   
@@ -90,27 +61,11 @@ function crypto_core(){
 		       }*/
 	         
 		   
-		       //Sweet Alert instead of confirm. Uses CallBack, instead Promise, to make sure it runs after  clicking OK (sweetAlerts does not freeze the code, like Confirm)
-		       swal({title: "Are you sure?", 
-			         text: "Are you Sure you want to encrypt again the already encrypted data instead of decryption?  May be you want to Decrypt?",
-			         type: "warning", 
-					 //buttons: true, dangerMode: true,
-					 showCancelButton: true,
-					 confirmButtonClass: "btn-danger",
-               },
-			   function(valueConfirm){
-			       if(valueConfirm){ //if click OK
-				       goProceed_Part_2();
-			       } else {    //if click cancel
-			          alert('Request terminated');
-			       }
-           });
-		   //end Swall_2 callback 
+		       //Sweet Alert instead of confirm. Uses Promise, to make sure it runs after  clicking OK (sweetAlerts does not freeze the code, like Confirm)
+		       swal({title: "Are you sure?", text: "Are you Sure you want to encrypt again the already encrypted data instead of decryption?",
+			         icon: "warning", buttons: true, dangerMode: true,
+               })
 		   
-		   
-			   
-			   
-		       /*
                .then((willDelete) => { //if u click Cancel, then stop everything
                    if (!willDelete) {
                         swal({ title: "Ok, cancelled", text: "Request terminated", icon: "error", button: "OK",})
@@ -120,7 +75,6 @@ function crypto_core(){
 			           goProceed_Part_2();
 	               }
                }); 
-			   */
 		       //END //Sweet Alert Promise, used instead of confirm
 		   
 		   } else { //when result & input are not the same
@@ -177,7 +131,7 @@ function crypto_core(){
    this.decryptX = function(){
 	    //If user has not input any data to encrypt
 	   if (!$.trim($("#userDataX").val()) || !$.trim($("#userSecretKey").val()) ){
-		   swal({ title: "No sufficient input detected for decryption!", text: "Enter your decrypted data and secret key", type: "error", button: "OK",}); //Sweet alert 
+		   swal({ title: "No input detected!", text: "Check your input", icon: "error", button: "OK",}); //Sweet alert 
 		   //alert("No input");
 		   return false;
 	   }
