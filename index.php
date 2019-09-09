@@ -21,11 +21,11 @@
 	  <link rel="stylesheet" type="text/css" media="all" href="css/sideNavFullScreenMenu.css"> <!-- sideNavFullScreenMenu CSS -->
 	  
 	  
-	<!-- This is what you need -->
+	<!--  use SweetAlert for Bootstrap  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.min.js"></script>
-    <!--.......................-->
+    <!--use SweetAlert for Bootstrap-->
 	  
       <script src="dist/js/bundle_js.js"></script><!--  Core  COMMON JS-->
 	  <meta name="viewport" content="width=device-width" />

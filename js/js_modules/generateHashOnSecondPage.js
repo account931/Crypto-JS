@@ -2,7 +2,7 @@
 
 //var $ = require('jquery');
 var UUID_file = require('./generate_uuid.js'); //my funct to generate random numbers
-
+var scroll_file = require('./scrollZ.js'); 
 
 
 function generateHashOnSecondPage(){
@@ -32,6 +32,11 @@ function generateHashOnSecondPage(){
 	       $(this).html(randomKey);
 		   $(this).after('<div class="col-sm-12 col-xs-12"><button type="button" id="copyResultButton">Copy<i class="fa fa-files-o"></i></button> <span class ="flashMessage"></span></div>'); //append button "Copy"
 	 }).fadeIn(2000); //html the result 
+	 
+	 
+	 //scroll to
+	  var scrollX = new scroll_file();
+	  scrollX.scrollResults("#resultFinal");
 	
    }
 
